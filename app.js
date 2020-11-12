@@ -1,6 +1,5 @@
 const express = require('express');
 const session = require('express-session');
-// const session = require('cookie-session');
 const passport = require('passport');
 const authRouter = require('./routes/auth');
 const profileRouter = require('./routes/profile');
@@ -12,22 +11,11 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
-//app.use(cookieParser());
 app.use(session({
     secret: keys.session.cookieKey,
     resave: true,
     saveUninitialized: true
 }));
-// app.use(session({
-//     maxAge: 24 * 60 * 60 * 1000,
-//     keys: [keys.session.cookieKey]
-// }));
-// app.use(express.cookieParser(keys.session.cookieKey));
-// app.use(express.cookieSession({
-//   cookie: {
-//     maxAge: 24 * 60 * 60 * 1000
-//   }
-// }));
 
 app.use(passport.initialize());
 app.use(passport.session());
