@@ -1,0 +1,12 @@
+# Mac
+**/.DS_Store
+
+# IDE
+.vscode
+
+# NPM
+node_modules
+package-lock.json
+
+# Keys
+config/keys.js
